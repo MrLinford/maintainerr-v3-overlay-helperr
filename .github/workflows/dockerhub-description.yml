@@ -20,5 +20,5 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: mrlinford/maintainerr-overlay-helperr
-        short-description: ${{ github.event.repository.description }}
+        short-description: A helper script to add a Netflix-style 'leaving soon' overlay on media posters.
         enable-url-completion: true
