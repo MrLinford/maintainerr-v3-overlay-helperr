@@ -1,11 +1,20 @@
+<p align="center">
+  <img src="logo.png" alt="Logo" width="200" height="200/>
+</p>
+
+<p align="center" >
+<!-- Discord Badge -->  <a href="https://discord.gg/WP4ZW2QYwk"><img alt="Discord" src="https://img.shields.io/discord/979010128533663805?style=flat&logo=discord&logoColor=white&label=Discord"></a>
+<!-- Latest Build -->  <picture><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mrlinford/maintainerr-v3-overlay-helperr/.github%2Fworkflows%2Fdocker-publish.yml?branch=dev&style=flat&logo=github&label=Latest%20Build"></picture>
+<!-- Latest Release -->  <a href="https://github.com/mrlinford/maintainerr-v3-overlay-helperr/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white&label=Latest%20Release"></a>
+<!-- Commits -->  <picture><img alt="GitHub commits since latest release" src="https://img.shields.io/github/commits-since/mrlinford/maintainerr-v3-overlay-helperr/latest?style=flat&logo=github&logoColor=white"></picture>
+<!-- Github Stars -->  <picture><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white&label=Stars"></picture>
+<!--Commits per month -->  <picture><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white&label=COMMITS"></picture>
+<!-- Issues Closed -->  <picture><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-closed/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white"></picture>
+<!-- Issues Open -->  <picture><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white"></picture>
+<!-- License -->  <picture><img alt="GitHub License" src="https://img.shields.io/github/license/mrlinford/maintainerr-v3-overlay-helperr?style=flat"></picture>
+</p>
+
 # Maintainerr v3 Overlay Helperr
-
-[![Docker](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml)
-[![PSScriptAnalyzer](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/powershell.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/powershell.yml)
-[![CodeQL](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/github-code-scanning/codeql)
-[![Dependabot Updates](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/dependabot/dependabot-updates)
-
-
 
 **Project inspired by [Maintainerr Poster Overlay](https://gitlab.com/jakeC207/maintainerr-poster-overlay)**
 
@@ -32,9 +41,9 @@ This project is a helper script that works with [Maintainerr](https://github.com
 
 ### Requirements
 
-- Docker
-- Plex Media Server
-- Maintainerr
+- [Docker](https://www.docker.com/get-started/)
+- [Plex Media Server](https://www.plex.tv/)
+- [Maintainerr](https://github.com/Maintainerr/Maintainerr)
 
 ### Usage
 
@@ -44,7 +53,7 @@ This project is a helper script that works with [Maintainerr](https://github.com
 
 Create a **docker-compose.yml** file with the following content:
 
-```yaml
+```Yaml
 version: "3.8"
 
 services:
@@ -101,7 +110,7 @@ services:
 
 2. Run the container
 
-```yaml
+```Yaml
 docker-compose up --build
 ```
 
