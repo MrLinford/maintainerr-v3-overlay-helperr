@@ -1,6 +1,8 @@
 <p align="center">
-  <img src="logo.png" alt="Logo" width="200" height="200/>
+  <img src="img/logo.png" alt="Logo" width="200" height="200/>    
 </p>
+
+#
 
 <p align="center" >
 <!-- Discord Badge -->  <a href="https://discord.gg/WP4ZW2QYwk"><img alt="Discord" src="https://img.shields.io/discord/979010128533663805?style=flat&logo=discord&logoColor=white&label=Discord"></a>
@@ -22,15 +24,17 @@
 
 This project is a helper script that works with [Maintainerr](https://github.com/jorenn92/Maintainerr) to add a Netflix-style "leaving soon" overlay on top of your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.
 
-### Using Calculated Date
+### Preview
+
+#### Using Calculated Date
 
 <img width="1144" alt="preview" src="https://github.com/user-attachments/assets/20ea3dd1-fb39-4431-b093-08241a3a4615">
 
-### Using Days Left
+#### Using Days Left
 
 <img width="905" height="318" alt="Screenshot 2025-09-05 at 07 37 57" src="https://github.com/user-attachments/assets/5ed6e6fb-a06f-40f3-aaff-fac85b142693" />
 
-### Features
+## Features
 
 - **Collections**: supports all collection types, can process multiple collections & can reorder Plex collection in either ascending or descending order depending on deletion date
 - **Customizable overlay**: use custom text, color, size, shape & positioning of the overlay
@@ -39,19 +43,58 @@ This project is a helper script that works with [Maintainerr](https://github.com
 - **Display days left vs exact date**: choose between showing the calculated date of removal (Netflix style) or days leading up to it (countdown)
 - **CRON scheduling**: schedule when the script should run using CRON expressions
 
-### Requirements
+## Requirements
 
 - [Docker](https://www.docker.com/get-started/)
-- [Plex Media Server](https://www.plex.tv/)
+- [Plex Media Server](https://github.com/linuxserver/docker-plex)
 - [Maintainerr](https://github.com/Maintainerr/Maintainerr)
 
-### Usage
+## Usage
 
-#### Docker
+#### Docker run:
 
-1. Build and Run the Container
+```Yaml
+docker run -d /
+  --name='maintainerr-v3-overlay-helperr' /
+  -e TZ="Europe/London" /
+  -e 'PLEX_URL'='http://192.168.1.225:32400' /
+  -e 'PLEX_TOKEN'='PLEX TOKEN' /
+  -e 'MAINTAINERR_URL'='http://192.168.1.225:6246' /
+  -e 'FONT_COLOR'='#FFFFFF' /
+  -e 'FONT_SIZE'='3.2' /
+  -e 'BACK_COLOR'='#B20710' /
+  -e 'PADDING'='1.2' /
+  -e 'BACK_RADIUS'='0' /
+  -e 'HORIZONTAL_OFFSET'='0' /
+  -e 'VERTICAL_OFFSET'='3' /
+  -e 'HORIZONTAL_ALIGN'='center' /
+  -e 'VERTICAL_ALIGN'='top' /
+  -e 'RESET_OVERLAY'='false' /
+  -e 'REAPPLY_OVERLAY'='true' /
+  -e 'DATE_FORMAT'='MMM d' /
+  -e 'ENABLE_DAY_SUFFIX'='false' /
+  -e 'USE_DAYS'='true' /
+  -e 'ENABLE_UPPERCASE'='false' /
+  -e 'OVERLAY_TEXT'='Leaving' /
+  -e 'TEXT_TODAY'='Last chance to watch' /
+  -e 'TEXT_DAY'='Gone tomorrow' /
+  -e 'TEXT_DAYS'='Gone in {0} days' /
+  -e 'PLEX_COLLECTION_ORDER'='asc' /
+  -e 'PROCESS_COLLECTIONS'='Movies Leaving Soon, TV Programmes Leaving Soon' /
+  -e 'LANGUAGE'='en-GB' /
+  -e 'CRON_SCHEDULE'='0 8 * * *' /
+  -e 'RUN_ON_CREATION'='true' /
+  -e 'IMAGE_SAVE_PATH'='/images' /
+  -e 'ORIGINAL_IMAGE_PATH'='/images/originals' /
+  -e 'TEMP_IMAGE_PATH'='/images/temp' /
+  -e 'FONT_PATH'='/fonts/font.ttf' /
+  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/images':'/images':'rw' /
+  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/fonts':'/fonts':'rw' /
+  -v '/mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/':'/plexmeta':'rw' /
+  --restart=unless-stopped 'ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest'  /
+```
 
-Create a **docker-compose.yml** file with the following content:
+#### Docker-compose:
 
 ```Yaml
 version: "3.8"
@@ -108,15 +151,11 @@ services:
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
 ```
 
-2. Run the container
-
-```Yaml
-docker-compose up --build
-```
-
 #### Unraid
 
 Orginal Maintainerr-Overlay-Helperr community app available thanks to [nwithan8](https://github.com/nwithan8/unraid_templates)
+
+[Unraid Template](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/main/templates/maintainerr-v3-overlay-helperr.xml)
 
 #### Ensure Directories Exist
 
