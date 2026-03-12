@@ -40,8 +40,8 @@ Create a **docker-compose.yml** file with the following content:
 version: '3.8'
 
 services:
-  maintainerr-overlay-helperr:
-    image: MrLinford/maintainerr-overlay-helperr:latest
+  maintainerr-v3-overlay-helperr:
+    image: ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest
     environment:
       PLEX_URL: "http://192.168.1.225:32400"
       PLEX_TOKEN: "PLEX TOKEN"
