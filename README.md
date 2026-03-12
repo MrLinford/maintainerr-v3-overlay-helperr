@@ -2,7 +2,7 @@
 
 **Project inspired by [Maintainerr Poster Overlay](https://gitlab.com/jakeC207/maintainerr-poster-overlay)**
 
-**Orginal work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr_)**
+**Original work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr_)**
 
 
 [![Build Docker Image](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/docker-image.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/docker-image.yml) [![CodeQL](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql) [![PSScriptAnalyzer](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml)
@@ -63,7 +63,7 @@ services:
       FONT_SIZE: "3.2"
       PADDING: "1.2"
       BACK_RADIUS: "0"
-      HORIZONTAL_OFFSET: ""
+      HORIZONTAL_OFFSET: "0"
       HORIZONTAL_ALIGN: "center"
       VERTICAL_OFFSET: "3"
       VERTICAL_ALIGN: "top"
@@ -79,7 +79,7 @@ services:
       ENABLE_DAY_SUFFIX: true    # Enable or disable date suffix (i.e., th from November 14th). Mainly for French people
       ENABLE_UPPERCASE: false    # Use uppercase or lowercase for date format
 
-      LANGUAGE: "en-US"    # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), which will default to en-US if not provided.
+      LANGUAGE: "en-GB"    # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), which will default to en-US if not provided.
 
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
       PROCESS_COLLECTIONS: "Leaving Soon" #Name of the collection to be reordered. You can specify  multiple separated by , "Leaving Soon, Not Watched, Bad Movies."
