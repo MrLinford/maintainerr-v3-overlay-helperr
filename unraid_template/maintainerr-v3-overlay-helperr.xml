@@ -12,14 +12,12 @@
   <Overview>Works in combination with Maintainerr, adding a Netflix-style "leaving soon" overlay on top of your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.</Overview>
   <Category>MediaApp:Video MediaServer:Video Productivity: Tools:Utilities Other:</Category>
   <WebUI/>
-  <TemplateURL>https://github.com/MrLinford/maintainerr-v3-overlay-helperr/main/templates/maintainerr-v3-overlay-helperr.xml</TemplateURL>
+  <TemplateURL>https://github.com/MrLinford/maintainerr-v3-overlay-helperr/blob/dev/unraid_template/maintainerr-v3-overlay-helperr.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/MrLinford/maintainerr-v3-overlay-helperr/refs/heads/dev/logo.png</Icon>
   <ExtraParams>--restart=unless-stopped</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1773341900</DateInstalled>
-  <DonateText>If you like an app, please donate to the respective developers; I'm just writing XML files over here. But if you have some change to spare afterwards, maybe chuck me a buck?</DonateText>
-  <DonateLink>https://www.buymeacoffee.com/nwithan8</DonateLink>
+  <DateInstalled/>
   <Requires>Expects a font file named `font.tff` to be present in the Font Path.</Requires>
   <Config Name="Plex - URL" Target="PLEX_URL" Default="http://192.168.1.225:32400" Mode="{3}" Description="URL to your Plex server" Type="Variable" Display="always-hide" Required="true" Mask="false">http://192.168.1.225:32400</Config>
   <Config Name="Plex - Token" Target="PLEX_TOKEN" Default="" Mode="{3}" Description="Plex token for authentication" Type="Variable" Display="always-hide" Required="true" Mask="true"></Config>
