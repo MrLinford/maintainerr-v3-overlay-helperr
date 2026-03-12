@@ -9,7 +9,7 @@
 
 **Project inspired by [Maintainerr Poster Overlay](https://gitlab.com/jakeC207/maintainerr-poster-overlay)**
 
-**Original work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr_)**
+**Original work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr)**
 
 This project is a helper script that works with [Maintainerr](https://github.com/jorenn92/Maintainerr) to add a Netflix-style "leaving soon" overlay on top of your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.
 
