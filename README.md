@@ -1,6 +1,8 @@
 <p align="center">
-  <img src="img/logo.png" alt="Logo" width="200" height="200/>    
+  <img src="img/logo.png" alt="Logo" width="200" height="200/>
 </p>
+
+#
 
 <p align="center" >
 <!-- Discord Badge -->  <a href="https://discord.gg/WP4ZW2QYwk"><img alt="Discord" src="https://img.shields.io/discord/979010128533663805?style=flat&logo=discord&logoColor=white&label=Discord"></a>
