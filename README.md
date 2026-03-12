@@ -36,10 +36,10 @@ This project is a helper script that works with [Maintainerr](https://github.com
 
 ## Features
 
-- **Collections**: supports all collection types, can process multiple collections & can reorder Plex collection in either ascending or descending order depending on deletion date
-- **Customizable overlay**: use custom text, color, size, shape & positioning of the overlay
-- **Overlay reset & deletion**: revert back to the original poster & delete the generated overlay poster from Plex metadata folder
-- **Automatic poster update**: change the deletion date in the overlay automatically when making changes to the Maintainerr rule(s)
+- **Collections**: All types of collections are supported. The script can process multiple collections at once and reorder each Plex collection in ascending or descending order based on deletion date, allowing you to easily manage upcoming removals.
+- **Customizable overlay**: use custom text, colour, size, shape & positioning of the overlay
+- **Overlay reset & deletion**: revert to the original poster & delete the generated overlay poster from the Plex metadata folder
+- **Automatic poster update**: The overlay's deletion date automatically updates to match any modifications you make to Maintainerr rules, ensuring your visual overlays always reflect the latest media removal schedules.
 - **Display days left vs exact date**: choose between showing the calculated date of removal (Netflix style) or days leading up to it (countdown)
 - **CRON scheduling**: schedule when the script should run using CRON expressions
 
@@ -115,7 +115,7 @@ services:
       RESET_OVERLAY: "false" #Enable to reset all overlays and use the original media posters
       USE_DAYS: "true" #Enable to use days left; disable to use calculated date
 
-      # Change the values here to customize the overlay
+      # Change the values here to customise the overlay
       FONT_PATH: "/fonts/AvenirNextLTPro-Bold.ttf"
       FONT_COLOR: "#ffffff"
       BACK_COLOR: "#B20710"
@@ -130,20 +130,20 @@ services:
       DATE_FORMAT: "MMM d" # Set your desired date format between "d MMM" or "MMM d"
       OVERLAY_TEXT: "Leaving" # Set your desired text to display before removal date
 
-      #Customize messages for when using days
+      # Customise messages for when using days
       TEXT_TODAY: "Last chance to watch"
       TEXT_DAY: "Gone tomorrow"
       TEXT_DAYS: "Gone in {0} days"
 
-      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
+      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for French people
       ENABLE_UPPERCASE: false # Use uppercase or lowercase for date format
 
-      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
+      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French); it will default to en-US if not provided.
 
       CRON_SCHEDULE: "0 */8 * * *" #Configure the schedule CRON should execute the script; default is          every 8 hours
 
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
-      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the colletion to be reodered. You can specify  multiple seperated by , "Leaving Soon, Not Watched, Bad Movies"
+      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the collection to be reordered. You can specify  multiple separated by , "Leaving Soon, Not Watched, Bad Movies"
 
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
