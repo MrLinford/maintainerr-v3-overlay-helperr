@@ -1,18 +1,24 @@
-# Maintainerr Overlay Helperr
+# Maintainerr v3 Overlay Helperr
+
+[![Docker](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml)
+[![PSScriptAnalyzer](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/powershell.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/powershell.yml)
+[![CodeQL](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/github-code-scanning/codeql)
+[![Dependabot Updates](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/dependabot/dependabot-updates)
+
+
 
 **Project inspired by [Maintainerr Poster Overlay](https://gitlab.com/jakeC207/maintainerr-poster-overlay)**
 
 **Original work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr_)**
 
-
-[![Docker Image CI](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-image.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-image.yml) [![Docker](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml) [![CodeQL](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql) [![PSScriptAnalyzer](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml)
-
 This project is a helper script that works with [Maintainerr](https://github.com/jorenn92/Maintainerr) to add a Netflix-style "leaving soon" overlay on top of your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.
 
 ### Using Calculated Date
+
 <img width="1144" alt="preview" src="https://github.com/user-attachments/assets/20ea3dd1-fb39-4431-b093-08241a3a4615">
 
 ### Using Days Left
+
 <img width="905" height="318" alt="Screenshot 2025-09-05 at 07 37 57" src="https://github.com/user-attachments/assets/5ed6e6fb-a06f-40f3-aaff-fac85b142693" />
 
 ### Features
@@ -33,11 +39,13 @@ This project is a helper script that works with [Maintainerr](https://github.com
 ### Usage
 
 #### Docker
+
 1. Build and Run the Container
 
 Create a **docker-compose.yml** file with the following content:
+
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   maintainerr-v3-overlay-helperr:
@@ -67,35 +75,38 @@ services:
       VERTICAL_OFFSET: "3"
       VERTICAL_ALIGN: "top"
 
-      DATE_FORMAT: "MMM d"     # Set your desired date format between "d MMM" or "MMM d"
-      OVERLAY_TEXT: "Leaving"    # Set your desired text to display before removal date
+      DATE_FORMAT: "MMM d" # Set your desired date format between "d MMM" or "MMM d"
+      OVERLAY_TEXT: "Leaving" # Set your desired text to display before removal date
 
       #Customize messages for when using days
       TEXT_TODAY: "Last chance to watch"
       TEXT_DAY: "Gone tomorrow"
       TEXT_DAYS: "Gone in {0} days"
-  
-      ENABLE_DAY_SUFFIX: true    # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
-      ENABLE_UPPERCASE: false    # Use uppercase or lowercase for date format
 
-      LANGUAGE: "en-GB"    # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
+      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
+      ENABLE_UPPERCASE: false # Use uppercase or lowercase for date format
+
+      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
 
       CRON_SCHEDULE: "0 */8 * * *" #Configure the schedule CRON should execute the script; default is          every 8 hours
 
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
       PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the colletion to be reodered. You can specify  multiple seperated by , "Leaving Soon, Not Watched, Bad Movies"
-      
+
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
 ```
+
 2. Run the container
+
 ```yaml
 docker-compose up --build
 ```
 
 #### Unraid
+
 Orginal Maintainerr-Overlay-Helperr community app available thanks to [nwithan8](https://github.com/nwithan8/unraid_templates)
 
 #### Ensure Directories Exist
@@ -103,4 +114,3 @@ Orginal Maintainerr-Overlay-Helperr community app available thanks to [nwithan8]
 - Ensure the directories specified in IMAGE_SAVE_PATH, ORIGINAL_IMAGE_PATH, and TEMP_IMAGE_PATH exist on your system.
 - Ensure that the font file you are going to use is present in the mapped 'fonts' folder prior to running the script.
 - The script will automatically run every RUN_INTERVAL minutes. If the interval is not specified, it defaults to 8 hours.
-
