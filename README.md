@@ -1,6 +1,8 @@
 # Maintainerr Overlay Helperr
 
 **Project inspired by [Maintainerr Poster Overlay](https://gitlab.com/jakeC207/maintainerr-poster-overlay)**
+**Orginal work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr_)**
+
 
 [![Build Docker Image](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/docker-image.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/docker-image.yml) [![CodeQL](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql) [![PSScriptAnalyzer](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml)
 
@@ -38,7 +40,7 @@ version: '3.8'
 
 services:
   maintainerr-overlay-helperr:
-    image: gsariev/maintainerr-overlay-helperr:latest
+    image: mrlinford/maintainerr-overlay-helperr:latest
     environment:
       PLEX_URL: "http://192.168.0.139:32400"
       PLEX_TOKEN: "PLEX TOKEN"
@@ -94,7 +96,7 @@ docker-compose up --build
 ```
 
 #### Unraid
-Maintainerr-Overlay-Helperr community app available thanks to [nwithan8](https://github.com/nwithan8/unraid_templates)
+Orginal Maintainerr-Overlay-Helperr community app available thanks to [nwithan8](https://github.com/nwithan8/unraid_templates)
 
 #### Ensure Directories Exist
 
