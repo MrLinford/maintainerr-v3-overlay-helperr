@@ -6,7 +6,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/MrLinford/maintainerr-v3-overlay-helperr/issues</Support>
+  <Support>https://forums.unraid.net/topic/197719-support-mrlinfordmaintainerr-v3-overlay-helperr/</Support>
   <Project>https://github.com/MrLinford/maintainerr-v3-overlay-helperr</Project>
   <ReadMe/>
   <Overview>Works in combination with Maintainerr, adding a Netflix-style "leaving soon" overlay on top of your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.</Overview>
