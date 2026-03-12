@@ -28,11 +28,11 @@ This project is a helper script that works with [Maintainerr](https://github.com
 
 #### Using Calculated Date
 
-<img width="1144" alt="preview" src="https://github.com/user-attachments/assets/20ea3dd1-fb39-4431-b093-08241a3a4615">
+<img alt="Using Calculated Date" src="img/using-calculated-date.png">
 
 #### Using Days Left
 
-<img width="905" height="318" alt="Screenshot 2025-09-05 at 07 37 57" src="https://github.com/user-attachments/assets/5ed6e6fb-a06f-40f3-aaff-fac85b142693" />
+<img alt="Using Days Left" src="img/using-days-left.png" />
 
 ## Features
 
