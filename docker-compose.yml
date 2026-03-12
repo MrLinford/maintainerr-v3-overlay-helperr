@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   maintainerr-v3-overlay-helperr:
@@ -28,29 +28,26 @@ services:
       VERTICAL_OFFSET: "3"
       VERTICAL_ALIGN: "top"
 
-      DATE_FORMAT: "MMM d"     # Set your desired date format between "d MMM" or "MMM d"
-      OVERLAY_TEXT: "Leaving"    # Set your desired text to display before removal date
+      DATE_FORMAT: "MMM d" # Set your desired date format between "d MMM" or "MMM d"
+      OVERLAY_TEXT: "Leaving" # Set your desired text to display before removal date
 
       #Customize messages for when using days
       TEXT_TODAY: "Last chance to watch"
       TEXT_DAY: "Gone tomorrow"
       TEXT_DAYS: "Gone in {0} days"
-  
-      ENABLE_DAY_SUFFIX: true    # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
-      ENABLE_UPPERCASE: false    # Use uppercase or lowercase for date format
 
-      LANGUAGE: "en-GB"    # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
+      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
+      ENABLE_UPPERCASE: false # Use uppercase or lowercase for date format
+
+      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
 
       CRON_SCHEDULE: "0 */8 * * *" #Configure the schedule CRON should execute the script; default is          every 8 hours
 
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
       PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the colletion to be reodered. You can specify  multiple seperated by , "Leaving Soon, Not Watched, Bad Movies"
-      
+
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
-
-
-
 
