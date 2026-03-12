@@ -4,7 +4,11 @@ permissions:
 on:
   push:
     branches:
-      - main
+    - main
+    - release/*
+  pull_request:
+    branches:
+    - main
 jobs:
     build:
       name: push docker image to docker hub
@@ -26,3 +30,4 @@ jobs:
         - name: push the docker image
           id: push-docker-image
           run: docker push ${{secrets.DOCKERHUB_USERNAME}}/maintainerr-overlay-helperr:latest
+          
