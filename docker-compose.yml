@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  maintainerr-overlay-helperr:
-    image: MrLinford/maintainerr-overlay-helperr:latest
+  maintainerr-v3-overlay-helperr:
+    image: ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest
     environment:
       PLEX_URL: "http://192.168.1.225:32400"
       PLEX_TOKEN: "PLEX TOKEN"
@@ -50,6 +50,7 @@ services:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
+
 
 
 
