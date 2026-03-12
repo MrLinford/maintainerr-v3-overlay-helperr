@@ -2,6 +2,8 @@
 
 **Project inspired by [Maintainerr Poster Overlay](https://gitlab.com/jakeC207/maintainerr-poster-overlay)**
 
+[![Build Docker Image](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/docker-image.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/docker-image.yml) [![CodeQL](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql) [![PSScriptAnalyzer](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml)
+
 This project is a helper script that works in combination with [Maintainerr](https://github.com/jorenn92/Maintainerr), adding a Netflix-style "leaving soon" overlay on top of your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.
 
 ### Using Calculated Date
