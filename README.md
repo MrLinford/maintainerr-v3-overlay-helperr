@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="img/logo.png" alt="Logo" width="150" height="150/>
+  <img src="img/logo.png" alt="Logo" width="200" height="200/>
+    <br>
 </p>
 
-#
-
 <p align="center" >
+  <br>
 <!-- Discord Badge -->  <a href="https://discord.gg/WP4ZW2QYwk"><img alt="Discord" src="https://img.shields.io/discord/979010128533663805?style=flat&logo=discord&logoColor=white&label=Discord"></a>
 <!-- Latest Build -->  <picture><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mrlinford/maintainerr-v3-overlay-helperr/.github%2Fworkflows%2Fdocker-publish.yml?branch=dev&style=flat&logo=github&label=Latest%20Build"></picture>
 <!-- Latest Release -->  <a href="https://github.com/mrlinford/maintainerr-v3-overlay-helperr/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white&label=Latest%20Release"></a>
