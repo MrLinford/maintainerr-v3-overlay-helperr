@@ -7,6 +7,7 @@ RUN apt-get update && \
     libgdiplus \
     libc6-dev \
     imagemagick \
+    curl ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Latest releases available at https://github.com/aptible/supercronic/releases
