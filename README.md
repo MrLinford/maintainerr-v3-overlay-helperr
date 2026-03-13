@@ -54,47 +54,48 @@ This project is a helper script that works with [Maintainerr](https://github.com
 #### Docker run:
 
 ```Yaml
-docker run -d /
-  --name='maintainerr-v3-overlay-helperr' /
-  -e TZ="Europe/London" /
-  -e 'PLEX_URL'='http://192.168.1.225:32400' /
-  -e 'PLEX_TOKEN'='PLEX TOKEN' /
-  -e 'MAINTAINERR_URL'='http://192.168.1.225:6246' /
-  -e 'FONT_COLOR'='#FFFFFF' /
-  -e 'FONT_SIZE'='3.2' /
-  -e 'BACK_COLOR'='#B20710' /
-  -e 'PADDING'='1.2' /
-  -e 'BACK_RADIUS'='0' /
-  -e 'HORIZONTAL_OFFSET'='0' /
-  -e 'VERTICAL_OFFSET'='3' /
-  -e 'HORIZONTAL_ALIGN'='center' /
-  -e 'VERTICAL_ALIGN'='top' /
-  -e 'RESET_OVERLAY'='false' /
-  -e 'REAPPLY_OVERLAY'='true' /
-  -e 'DATE_FORMAT'='MMM d' /
-  -e 'ENABLE_DAY_SUFFIX'='false' /
-  -e 'USE_DAYS'='true' /
-  -e 'ENABLE_UPPERCASE'='false' /
-  -e 'OVERLAY_TEXT'='Leaving' /
-  -e 'TEXT_TODAY'='Last chance to watch' /
-  -e 'TEXT_DAY'='Gone tomorrow' /
-  -e 'TEXT_DAYS'='Gone in {0} days' /
-  -e 'PLEX_COLLECTION_ORDER'='asc' /
-  -e 'PROCESS_COLLECTIONS'='Movies Leaving Soon, TV Programmes Leaving Soon' /
-  -e 'LANGUAGE'='en-GB' /
-  -e 'CRON_SCHEDULE'='0 8 * * *' /
-  -e 'RUN_ON_CREATION'='true' /
-  -e 'IMAGE_SAVE_PATH'='/images' /
-  -e 'ORIGINAL_IMAGE_PATH'='/images/originals' /
-  -e 'TEMP_IMAGE_PATH'='/images/temp' /
-  -e 'FONT_PATH'='/fonts/font.ttf' /
-  -e 'PUID'='99' /
-  -e 'PGID'='100' /
-  -e 'UMASK'='022' /
-  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/images':'/images':'rw' /
-  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/fonts':'/fonts':'rw' /
-  -v '/mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/':'/plexmeta':'rw' /
-  --restart=unless-stopped 'ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest'  /
+docker run -d \
+  --name='maintainerr-v3-overlay-helperr' \
+  -e TZ="Europe/London" \
+  -e 'PLEX_URL'='http://192.168.1.225:32400' \
+  -e 'PLEX_TOKEN'='PLEX TOKEN' \
+  -e 'MAINTAINERR_URL'='http://192.168.1.225:6246' \
+  -e 'FONT_COLOR'='#FFFFFF' \
+  -e 'FONT_SIZE'='3.2' \
+  -e 'BACK_COLOR'='#B20710' \
+  -e 'PADDING'='1.2' \
+  -e 'BACK_RADIUS'='0' \
+  -e 'HORIZONTAL_OFFSET'='0' \
+  -e 'VERTICAL_OFFSET'='3' \
+  -e 'HORIZONTAL_ALIGN'='center' \
+  -e 'VERTICAL_ALIGN'='top' \
+  -e 'RESET_OVERLAY'='false' \
+  -e 'REAPPLY_OVERLAY'='true' \
+  -e 'DATE_FORMAT'='MMM d' \
+  -e 'ENABLE_DAY_SUFFIX'='false' \
+  -e 'USE_DAYS'='true' \
+  -e 'ENABLE_UPPERCASE'='false' \
+  -e 'OVERLAY_TEXT'='Leaving' \
+  -e 'TEXT_TODAY'='Last chance to watch' \
+  -e 'TEXT_DAY'='Gone tomorrow' \
+  -e 'TEXT_DAYS'='Gone in {0} days' \
+  -e 'PLEX_COLLECTION_ORDER'='asc' \
+  -e 'PROCESS_COLLECTIONS'='Movies Leaving Soon, TV Programmes Leaving Soon' \
+  -e 'LANGUAGE'='en-GB' \
+  -e 'CRON_SCHEDULE'='0 8 * * *' \
+  -e 'RUN_ON_CREATION'='true' \
+  -e 'IMAGE_SAVE_PATH'='/images' \
+  -e 'ORIGINAL_IMAGE_PATH'='/images/originals' \
+  -e 'TEMP_IMAGE_PATH'='/images/temp' \
+  -e 'FONT_PATH'='/fonts/font.ttf' \
+  -e 'PUID'='99' \
+  -e 'PGID'='100' \
+  -e 'UMASK'='022' \
+  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/images':'/images':'rw' \
+  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/fonts':'/fonts':'rw' \
+  -v '/mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/':'/plexmeta':'rw' \
+  --restart=unless-stopped \
+  'ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest'
 ```
 
 #### Docker-compose:
@@ -105,21 +106,33 @@ version: "3.8"
 services:
   maintainerr-v3-overlay-helperr:
     image: ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest
+    container_name: maintainerr-overlay-helperr
     environment:
+      # --- Connection Settings ---
       PLEX_URL: "http://192.168.1.225:32400"
       PLEX_TOKEN: "PLEX TOKEN"
       MAINTAINERR_URL: "http://192.168.1.225:6246"
+      TZ: "Europe/London"
+
+      # --- Permissions & Security ---
+      PUID: 99  # Runs as 'nobody' for enhanced security
+      PGID: 100 
+      UMASK: 022 # Controls default permissions for created files
+
+      # --- Logic & Scheduling ---
+      RUN_ON_CREATION: "true"
+      CRON_SCHEDULE: "0 */8 * * *" # Managed by Supercronic for better reliability
+      REAPPLY_OVERLAY: "false"
+      RESET_OVERLAY: "false"
+      USE_DAYS: "true"
+
+      # --- Path Configuration ---
       IMAGE_SAVE_PATH: "/images"
       ORIGINAL_IMAGE_PATH: "/images/originals"
       TEMP_IMAGE_PATH: "/images/temp"
-      TZ: "Europe/London" #Replace with your timezone
-      RUN_ON_CREATION: "true" #Enable to run the overlay logic upon booting the container; disable to wait for the CRON run
-      REAPPLY_OVERLAY: "false" #Enable to force the re-processing of processed overlays
-      RESET_OVERLAY: "false" #Enable to reset all overlays and use the original media posters
-      USE_DAYS: "true" #Enable to use days left; disable to use calculated date
-
-      # Change the values here to customize the overlay
       FONT_PATH: "/fonts/AvenirNextLTPro-Bold.ttf"
+
+      # --- Visual Customization ---
       FONT_COLOR: "#ffffff"
       BACK_COLOR: "#B20710"
       FONT_SIZE: "3.2"
@@ -130,33 +143,25 @@ services:
       VERTICAL_OFFSET: "3"
       VERTICAL_ALIGN: "top"
 
-      DATE_FORMAT: "MMM d" # Set your desired date format between "d MMM" or "MMM d"
-      OVERLAY_TEXT: "Leaving" # Set your desired text to display before removal date
-
-      #Customize messages for when using days
+      # --- Localization & Text ---
+      DATE_FORMAT: "MMM d"
+      OVERLAY_TEXT: "Leaving"
       TEXT_TODAY: "Last chance to watch"
       TEXT_DAY: "Gone tomorrow"
       TEXT_DAYS: "Gone in {0} days"
+      ENABLE_DAY_SUFFIX: "true"
+      ENABLE_UPPERCASE: "false"
+      LANGUAGE: "en-GB"
 
-      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
-      ENABLE_UPPERCASE: false # Use uppercase or lowercase for date format
-
-      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
-
-      CRON_SCHEDULE: "0 */8 * * *" #Configure the schedule CRON should execute the script; default is          every 8 hours
-
-      PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
-      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the colletion to be reodered. You can specify  multiple seperated by , "Leaving Soon, Not Watched, Bad Movies"
-
-      PUID: 99 #User ID for the container
-      PGID: 100 #Group ID for the container
-      UMASK: 022 #UMASK for file permissions
+      # --- Collection Management ---
+      PLEX_COLLECTION_ORDER: "asc"
+      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon"
 
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
-      - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
-
+      - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta
+    restart: unless-stopped
 ```
 
 #### Unraid
