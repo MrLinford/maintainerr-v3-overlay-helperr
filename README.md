@@ -94,7 +94,6 @@ docker run -d \
   -v '/mnt/cache/appdata/maintainerr_overlay_helperr/images':'/images':'rw' \
   -v '/mnt/cache/appdata/maintainerr_overlay_helperr/fonts':'/fonts':'rw' \
   -v '/mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/':'/plexmeta':'rw' \
-  --restart=unless-stopped \
   'ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest'
 ```
 
@@ -161,7 +160,6 @@ services:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta
-    restart: unless-stopped
 ```
 
 #### Unraid

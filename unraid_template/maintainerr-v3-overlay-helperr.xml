@@ -14,7 +14,7 @@
   <WebUI/>
   <TemplateURL>https://github.com/MrLinford/maintainerr-v3-overlay-helperr/blob/dev/unraid_template/maintainerr-v3-overlay-helperr.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/MrLinford/maintainerr-v3-overlay-helperr/refs/heads/dev/logo.png</Icon>
-  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <ExtraParams/>
   <PostArgs/>
   <CPUset/>
   <DateInstalled/>
