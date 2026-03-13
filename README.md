@@ -1,43 +1,103 @@
-# Maintainerr Overlay Helperr
+<p align="center">
+  <img src="img/logo.png" alt="Logo" width="200" height="200/>
+    <br>
+</p>
+
+<p align="center" >
+  <br>
+<!-- Discord Badge -->  <a href="https://discord.gg/WP4ZW2QYwk"><img alt="Discord" src="https://img.shields.io/discord/979010128533663805?style=flat&logo=discord&logoColor=white&label=Discord"></a>
+<!-- Latest Build -->  <picture><img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mrlinford/maintainerr-v3-overlay-helperr/.github%2Fworkflows%2Fdocker-publish.yml?branch=dev&style=flat&logo=github&label=Latest%20Build"></picture>
+<!-- Latest Release -->  <a href="https://github.com/mrlinford/maintainerr-v3-overlay-helperr/releases"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white&label=Latest%20Release"></a>
+<!-- Commits -->  <picture><img alt="GitHub commits since latest release" src="https://img.shields.io/github/commits-since/mrlinford/maintainerr-v3-overlay-helperr/latest?style=flat&logo=github&logoColor=white"></picture>
+<!-- Github Stars -->  <picture><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white&label=Stars"></picture>
+<!--Commits per month -->  <picture><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white&label=COMMITS"></picture>
+<!-- Issues Closed -->  <picture><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues-closed/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white"></picture>
+<!-- Issues Open -->  <picture><img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/mrlinford/maintainerr-v3-overlay-helperr?style=flat&logo=github&logoColor=white"></picture>
+<!-- License -->  <picture><img alt="GitHub License" src="https://img.shields.io/github/license/mrlinford/maintainerr-v3-overlay-helperr?style=flat"></picture>
+</p>
+
+# Maintainerr v3 Overlay Helperr
 
 **Project inspired by [Maintainerr Poster Overlay](https://gitlab.com/jakeC207/maintainerr-poster-overlay)**
 
-**Original work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr_)**
-
-
-[![Docker Image CI](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-image.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-image.yml) [![Docker](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/actions/workflows/docker-publish.yml) [![CodeQL](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/github-code-scanning/codeql) [![PSScriptAnalyzer](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml/badge.svg)](https://github.com/MrLinford/maintainerr-overlay-helperr/actions/workflows/powershell.yml)
+**Original work and Forked from [gssariev/maintainerr-overlay-helperr](https://github.com/gssariev/maintainerr-overlay-helperr)**
 
 This project is a helper script that works with [Maintainerr](https://github.com/jorenn92/Maintainerr) to add a Netflix-style "leaving soon" overlay on top of your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.
 
-### Using Calculated Date
-<img width="1144" alt="preview" src="https://github.com/user-attachments/assets/20ea3dd1-fb39-4431-b093-08241a3a4615">
+### Preview
 
-### Using Days Left
-<img width="905" height="318" alt="Screenshot 2025-09-05 at 07 37 57" src="https://github.com/user-attachments/assets/5ed6e6fb-a06f-40f3-aaff-fac85b142693" />
+#### Using Calculated Date
 
-### Features
+<img alt="Using Calculated Date" src="img/using-calculated-date.png">
 
-- **Collections**: supports all collection types, can process multiple collections & can reorder Plex collection in either ascending or descending order depending on deletion date
-- **Customizable overlay**: use custom text, color, size, shape & positioning of the overlay
-- **Overlay reset & deletion**: revert back to the original poster & delete the generated overlay poster from Plex metadata folder
-- **Automatic poster update**: change the deletion date in the overlay automatically when making changes to the Maintainerr rule(s)
+#### Using Days Left
+
+<img alt="Using Days Left" src="img/using-days-left.png" />
+
+## Features
+
+- **Collections**: All types of collections are supported. The script can process multiple collections at once and reorder each Plex collection in ascending or descending order based on deletion date, allowing you to easily manage upcoming removals.
+- **Customizable overlay**: use custom text, colour, size, shape & positioning of the overlay
+- **Overlay reset & deletion**: revert to the original poster & delete the generated overlay poster from the Plex metadata folder
+- **Automatic poster update**: The overlay's deletion date automatically updates to match any modifications you make to Maintainerr rules, ensuring your visual overlays always reflect the latest media removal schedules.
 - **Display days left vs exact date**: choose between showing the calculated date of removal (Netflix style) or days leading up to it (countdown)
 - **CRON scheduling**: schedule when the script should run using CRON expressions
 
-### Requirements
+## Requirements
 
-- Docker
-- Plex Media Server
-- Maintainerr
+- [Docker](https://www.docker.com/get-started/)
+- [Plex Media Server](https://github.com/linuxserver/docker-plex)
+- [Maintainerr](https://github.com/Maintainerr/Maintainerr)
 
-### Usage
+## Usage
 
-#### Docker
-1. Build and Run the Container
+#### Docker run:
 
-Create a **docker-compose.yml** file with the following content:
-```yaml
-version: '3.8'
+```Yaml
+docker run -d /
+  --name='maintainerr-v3-overlay-helperr' /
+  -e TZ="Europe/London" /
+  -e 'PLEX_URL'='http://192.168.1.225:32400' /
+  -e 'PLEX_TOKEN'='PLEX TOKEN' /
+  -e 'MAINTAINERR_URL'='http://192.168.1.225:6246' /
+  -e 'FONT_COLOR'='#FFFFFF' /
+  -e 'FONT_SIZE'='3.2' /
+  -e 'BACK_COLOR'='#B20710' /
+  -e 'PADDING'='1.2' /
+  -e 'BACK_RADIUS'='0' /
+  -e 'HORIZONTAL_OFFSET'='0' /
+  -e 'VERTICAL_OFFSET'='3' /
+  -e 'HORIZONTAL_ALIGN'='center' /
+  -e 'VERTICAL_ALIGN'='top' /
+  -e 'RESET_OVERLAY'='false' /
+  -e 'REAPPLY_OVERLAY'='true' /
+  -e 'DATE_FORMAT'='MMM d' /
+  -e 'ENABLE_DAY_SUFFIX'='false' /
+  -e 'USE_DAYS'='true' /
+  -e 'ENABLE_UPPERCASE'='false' /
+  -e 'OVERLAY_TEXT'='Leaving' /
+  -e 'TEXT_TODAY'='Last chance to watch' /
+  -e 'TEXT_DAY'='Gone tomorrow' /
+  -e 'TEXT_DAYS'='Gone in {0} days' /
+  -e 'PLEX_COLLECTION_ORDER'='asc' /
+  -e 'PROCESS_COLLECTIONS'='Movies Leaving Soon, TV Programmes Leaving Soon' /
+  -e 'LANGUAGE'='en-GB' /
+  -e 'CRON_SCHEDULE'='0 8 * * *' /
+  -e 'RUN_ON_CREATION'='true' /
+  -e 'IMAGE_SAVE_PATH'='/images' /
+  -e 'ORIGINAL_IMAGE_PATH'='/images/originals' /
+  -e 'TEMP_IMAGE_PATH'='/images/temp' /
+  -e 'FONT_PATH'='/fonts/font.ttf' /
+  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/images':'/images':'rw' /
+  -v '/mnt/cache/appdata/maintainerr_overlay_helperr/fonts':'/fonts':'rw' /
+  -v '/mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/':'/plexmeta':'rw' /
+  --restart=unless-stopped 'ghcr.io/mrlinford/maintainerr-v3-overlay-helperr:latest'  /
+```
+
+#### Docker-compose:
+
+```Yaml
+version: "3.8"
 
 services:
   maintainerr-v3-overlay-helperr:
@@ -55,7 +115,7 @@ services:
       RESET_OVERLAY: "false" #Enable to reset all overlays and use the original media posters
       USE_DAYS: "true" #Enable to use days left; disable to use calculated date
 
-      # Change the values here to customize the overlay
+      # Change the values here to customise the overlay
       FONT_PATH: "/fonts/AvenirNextLTPro-Bold.ttf"
       FONT_COLOR: "#ffffff"
       BACK_COLOR: "#B20710"
@@ -67,40 +127,38 @@ services:
       VERTICAL_OFFSET: "3"
       VERTICAL_ALIGN: "top"
 
-      DATE_FORMAT: "MMM d"     # Set your desired date format between "d MMM" or "MMM d"
-      OVERLAY_TEXT: "Leaving"    # Set your desired text to display before removal date
+      DATE_FORMAT: "MMM d" # Set your desired date format between "d MMM" or "MMM d"
+      OVERLAY_TEXT: "Leaving" # Set your desired text to display before removal date
 
-      #Customize messages for when using days
+      # Customise messages for when using days
       TEXT_TODAY: "Last chance to watch"
       TEXT_DAY: "Gone tomorrow"
       TEXT_DAYS: "Gone in {0} days"
-  
-      ENABLE_DAY_SUFFIX: true    # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
-      ENABLE_UPPERCASE: false    # Use uppercase or lowercase for date format
 
-      LANGUAGE: "en-GB"    # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
+      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for French people
+      ENABLE_UPPERCASE: false # Use uppercase or lowercase for date format
+
+      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French); it will default to en-US if not provided.
 
       CRON_SCHEDULE: "0 */8 * * *" #Configure the schedule CRON should execute the script; default is          every 8 hours
 
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
-      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the colletion to be reodered. You can specify  multiple seperated by , "Leaving Soon, Not Watched, Bad Movies"
-      
+      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the collection to be reordered. You can specify  multiple separated by , "Leaving Soon, Not Watched, Bad Movies"
+
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
 ```
-2. Run the container
-```yaml
-docker-compose up --build
-```
 
 #### Unraid
+
 Orginal Maintainerr-Overlay-Helperr community app available thanks to [nwithan8](https://github.com/nwithan8/unraid_templates)
+
+[Unraid Template](https://github.com/MrLinford/maintainerr-v3-overlay-helperr/main/templates/maintainerr-v3-overlay-helperr.xml)
 
 #### Ensure Directories Exist
 
 - Ensure the directories specified in IMAGE_SAVE_PATH, ORIGINAL_IMAGE_PATH, and TEMP_IMAGE_PATH exist on your system.
 - Ensure that the font file you are going to use is present in the mapped 'fonts' folder prior to running the script.
 - The script will automatically run every RUN_INTERVAL minutes. If the interval is not specified, it defaults to 8 hours.
-
