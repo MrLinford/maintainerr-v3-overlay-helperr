@@ -88,6 +88,9 @@ docker run -d /
   -e 'ORIGINAL_IMAGE_PATH'='/images/originals' /
   -e 'TEMP_IMAGE_PATH'='/images/temp' /
   -e 'FONT_PATH'='/fonts/font.ttf' /
+  -e 'PUID'='99' /
+  -e 'PGID'='100' /
+  -e 'UMASK'='022' /
   -v '/mnt/cache/appdata/maintainerr_overlay_helperr/images':'/images':'rw' /
   -v '/mnt/cache/appdata/maintainerr_overlay_helperr/fonts':'/fonts':'rw' /
   -v '/mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/':'/plexmeta':'rw' /
@@ -144,6 +147,10 @@ services:
 
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
       PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the collection to be reordered. You can specify  multiple separated by , "Leaving Soon, Not Watched, Bad Movies"
+
+      PUID: 99  #PUID For you nobody
+      PGID: 100 #PGID for users
+      UMASK: 022
 
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
