@@ -57,6 +57,7 @@ jobs:
             type=schedule,pattern=nightly
             type=ref,event=branch
             type=ref,event=tag
+            type=ref,event=pr
             # Versioning tags
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}.{{minor}}
