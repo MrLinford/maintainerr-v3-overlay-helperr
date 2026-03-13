@@ -15,7 +15,8 @@ fi
 
 # Inject CRON job with full env
 CRON_CMD="$FINAL_CRON . /etc/environment; pwsh /maintainerr_days_left.ps1 >> /proc/1/fd/1 2>> /proc/1/fd/2"
-(crontab -l 2>/dev/null; echo "$CRON_CMD") | crontab -
+# Write it to a file (Supercronic reads files, not the system crontab)
+echo "$CRON_CMD" > /tmp/crontab
 
 # Run on container start (once)
 if [ "$RUN_ON_CREATION" = true ]; then
@@ -23,5 +24,6 @@ if [ "$RUN_ON_CREATION" = true ]; then
   pwsh /maintainerr_days_left.ps1
 fi
 
-echo "[ENTRYPOINT] Starting cron in foreground..."
-cron -f
+echo "[ENTRYPOINT] Starting supercronic..."
+# Execute supercronic pointing to that file
+exec /usr/local/bin/supercronic /tmp/crontab
