@@ -118,7 +118,7 @@ services:
       RESET_OVERLAY: "false" #Enable to reset all overlays and use the original media posters
       USE_DAYS: "true" #Enable to use days left; disable to use calculated date
 
-      # Change the values here to customise the overlay
+      # Change the values here to customize the overlay
       FONT_PATH: "/fonts/AvenirNextLTPro-Bold.ttf"
       FONT_COLOR: "#ffffff"
       BACK_COLOR: "#B20710"
@@ -133,29 +133,30 @@ services:
       DATE_FORMAT: "MMM d" # Set your desired date format between "d MMM" or "MMM d"
       OVERLAY_TEXT: "Leaving" # Set your desired text to display before removal date
 
-      # Customise messages for when using days
+      #Customize messages for when using days
       TEXT_TODAY: "Last chance to watch"
       TEXT_DAY: "Gone tomorrow"
       TEXT_DAYS: "Gone in {0} days"
 
-      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for French people
+      ENABLE_DAY_SUFFIX: true # Enable or disable date suffix (i.e. th from November 14th). Mainly for french people
       ENABLE_UPPERCASE: false # Use uppercase or lowercase for date format
 
-      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French); it will default to en-US if not provided.
+      LANGUAGE: "en-GB" # Used for date format and month abbreviation language. You can change this as needed (e.g., "fr-FR" for French), will default to en-US if not provided.
 
       CRON_SCHEDULE: "0 */8 * * *" #Configure the schedule CRON should execute the script; default is          every 8 hours
 
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
-      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the collection to be reordered. You can specify  multiple separated by , "Leaving Soon, Not Watched, Bad Movies"
+      PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the colletion to be reodered. You can specify  multiple seperated by , "Leaving Soon, Not Watched, Bad Movies"
 
-      PUID: 99  #PUID For you nobody
-      PGID: 100 #PGID for users
-      UMASK: 022
+      PUID: 99 #User ID for the container
+      PGID: 100 #Group ID for the container
+      UMASK: 022 #UMASK for file permissions
 
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
+
 ```
 
 #### Unraid

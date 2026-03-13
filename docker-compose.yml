@@ -46,11 +46,11 @@ services:
       PLEX_COLLECTION_ORDER: "asc" #Choose between ascending (asc) and descending (desc)
       PROCESS_COLLECTIONS: "Movies Leaving Soon, TV Programmes Leaving Soon" #Name of the colletion to be reodered. You can specify  multiple seperated by , "Leaving Soon, Not Watched, Bad Movies"
 
-      PUID: 99  #PUID For you nobody
-      PGID: 100 #PGID for users
+      PUID: 99 #User ID for the container
+      PGID: 100 #Group ID for the container
+      UMASK: 022 #UMASK for file permissions
 
     volumes:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta #path to plex metadata folder
-
