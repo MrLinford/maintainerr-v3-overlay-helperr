@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   maintainerr-overlay-helperr:
@@ -12,8 +12,8 @@ services:
       TZ: "Europe/London"
 
       # --- Permissions & Security ---
-      PUID: 99  # Runs as 'nobody' for enhanced security
-      PGID: 100 
+      PUID: 99 # Runs as 'nobody' for enhanced security
+      PGID: 100
       UMASK: 022 # Controls default permissions for created files
 
       # --- Logic & Scheduling ---
@@ -58,5 +58,3 @@ services:
       - /mnt/cache/appdata/maintainerr_overlay_helperr/images:/images
       - /mnt/cache/appdata/maintainerr_overlay_helperr/fonts:/fonts
       - /mnt/cache/appdata/plex/Library/Application Support/Plex Media Server/Metadata/:/plexmeta
-
-

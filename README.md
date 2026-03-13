@@ -22,9 +22,11 @@
 This project is a helper script that works with [Maintainerr](https://github.com/jorenn92/Maintainerr) to add a Netflix-style "leaving soon" overlay to your media. It integrates with Plex and Maintainerr to download posters, add overlay text, and upload the modified posters back to Plex. It runs periodically to ensure posters are updated with the correct information.
 
 ### Using Calculated Date
+
 <img alt="Using Calculated Date" src="img/using-calculated-date.png">
 
 ### Using Days Left
+
 <img alt="Using Days Left" src="img/using-days-left.png" />
 
 ### Features
@@ -108,7 +110,7 @@ services:
 
       # --- Permissions & Security ---
       PUID: 99  # Runs as 'nobody' for enhanced security
-      PGID: 100 
+      PGID: 100
       UMASK: 022 # Controls default permissions for created files
 
       # --- Logic & Scheduling ---
