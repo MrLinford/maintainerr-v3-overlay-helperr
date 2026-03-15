@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   maintainerr-overlay-helper:
-    image: maintainerr-overlay-helper:latest
+    image: maintainerr-overlay-helper:develop
     container_name: maintainerr-overlay-helper
     ports:
       - "3000:3000"
