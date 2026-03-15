@@ -54,9 +54,9 @@ This project is a helper script that works with [Maintainerr](https://github.com
 
 ```Yaml
 services:
-  maintainerr-overlay-helper:
-    image: maintainerr-overlay-helper:develop
-    container_name: maintainerr-overlay-helper
+  maintainerr-overlay-helperr:
+    image: maintainerr-overlay-helperr:develop
+    container_name: maintainerr-overlay-helperr
     ports:
       - "3000:3000"
     volumes:
