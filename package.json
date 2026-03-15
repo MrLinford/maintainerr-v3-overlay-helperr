@@ -1,0 +1,17 @@
+{
+  "name": "maintainerr-overlay-helper",
+  "version": "3.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=packages/backend\" \"npm run dev --workspace=packages/frontend\"",
+    "build": "npm run build --workspace=packages/backend && npm run build --workspace=packages/frontend",
+    "start": "node packages/backend/dist/index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

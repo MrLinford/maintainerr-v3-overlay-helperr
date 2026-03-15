@@ -1,0 +1,4 @@
+node_modules
+packages/backend/dist
+packages/frontend/dist
+*.log
