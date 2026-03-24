@@ -12,7 +12,9 @@ on:
     branches:
       - main
     # Publish semver tags as releases.
-    tags: ["v*.*.*"]
+    tags: 
+      - "v*.*.*"
+      - "RC-*"
   pull_request:
     branches: ["main"]
   merge_group:
