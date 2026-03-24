@@ -233,8 +233,10 @@ function Load-CollectionState {
     if (Test-Path -Path $CollectionStateFile) {
         try {
             $rawContent = Get-Content -Path $CollectionStateFile -Raw
-            Write-Host "Raw State File Content: $rawContent"
-            $state = $rawContent | ConvertFrom-Json -Depth 10
+            Write-Host "Raw State File Content: $rawContent"            
+            # Issue 41: if the JSON is empty or invalid, this can return $null, so we need to handle that case 
+            # Use -AsHashTable to ensure we get a hashtable back, and set a reasonable depth for nested structures
+            $state = $rawContent | ConvertFrom-Json -AsHashTable -Depth 10
 
             if ($state -eq $null) {
                 Log-Message -Type "WRN" -Message "Warning: Parsed state is null. Initializing as empty."
